@@ -1,0 +1,165 @@
+<!-- <main class="col-md-8 col-lg-10 content">
+  <h2>Registrar Nuevo Cliente</h2>
+
+  <div class="todo">
+    <label for="codigo">RUC:</label>
+    <div class="ruc">
+      <input type="text" id="ruc" name="ruc" #ruc />
+      <button (click)="buscarRuc(ruc.value)">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+          />
+        </svg>
+      </button>
+    </div>
+    <label for="nombre">Razón social:</label>
+    <input
+      type="text"
+      id="razon_social"
+      value="{{ datosSunat.razonSocial }}"
+      #razonSocial
+    />
+
+    <label for="direccion_cliente">Dirección:</label>
+    <input
+      type="text"
+      id="direccion_cliente"
+      value="{{ datosSunat.direccion }}"
+      #direccionCliente
+    />
+
+    <label for="telefono_cliente">Teléfono:</label>
+    <input type="text" id="telefono_cliente" #telefonoCliente />
+
+    <label for="correo_cliente">Correo Electrónico:</label>
+    <input type="email" id="correo_cliente" #correoCliente />
+
+    <div id="botones">
+      <button
+        (click)="
+          nuevo(
+            ruc.value,
+            razonSocial.value,
+            direccionCliente.value,
+            telefonoCliente.value,
+            correoCliente.value
+          )
+        "
+        id="regisistrar"
+      >
+        Registrar Cliente
+      </button>
+      <button (click)="redirigir('editar')" id="editar">Editar Clientes</button>
+    </div>
+  </div>
+</main> -->
+
+<main>
+  <div class="w-full flex flex-row items-center justify-center my-6">
+    <h2 class="font-bold text-gray-950 text-3xl">Registrar Nuevo Usuario</h2>
+  </div>
+  <button
+    (click)="toggleForm()"
+    class="bg-customGreen text-white py-2 px-4 rounded-md font-bold hover:bg-customGreenDark transition-colors mb-4"
+  >
+    {{ showForm ? "Ocultar Formulario" : "Registrar Nuevo Usuario" }}
+  </button>
+  @if(showForm){
+  <form class="mb-6">
+    <label for="documento">Documento:</label>
+    <div class="flex flex-row flex-nowrap gap-2 items-start justify-center">
+      <input
+        type="text"
+        id="documento"
+        name="documento"
+        [(ngModel)]="NewUsuario.documento"
+        required
+      />
+      <button
+        type="button"
+        (click)="buscarRuc(NewUsuario.documento)"
+        class="flex w-12 h-12 bg-customGreen hover:bg-customGreenDark transition-colors items-center justify-center rounded-md mt-1"
+      >
+        <svg
+          class="w-6 h-6 text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16Z" />
+          <path
+            fill-rule="evenodd"
+            d="M21.707 21.707a1 1 0 0 1-1.414 0l-3.5-3.5a1 1 0 0 1 1.414-1.414l3.5 3.5a1 1 0 0 1 0 1.414Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <label for="username">Username:</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      [(ngModel)]="NewUsuario.username"
+      required
+    />
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="NewUsuario.password"
+      required
+    />
+
+    <label for="nombre">Nombre:</label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      [(ngModel)]="NewUsuario.nombre"
+      required
+    />
+    <label for="direccion">Direccion:</label>
+    <input
+      type="text"
+      id="direccion"
+      name="direccion"
+      [(ngModel)]="NewUsuario.direccion"
+      required
+    />
+    <label for="telefono">Telefono:</label>
+    <input
+      type="text"
+      id="telefono"
+      name="telefono"
+      [(ngModel)]="NewUsuario.telefono"
+      required
+    />
+    <button
+      type="button"
+      (click)="Registrar()"
+      class="bg-customGreen text-white py-2 px-4 rounded-md font-bold hover:bg-customGreenDark transition-colors"
+    >
+      Registrar
+    </button>
+  </form>
+  }
+
+  <app-tables
+    [data]="Usuarios"
+    [columns]="['id', 'nombre', 'documento', 'direccion', 'username']"
+  />
+</main>

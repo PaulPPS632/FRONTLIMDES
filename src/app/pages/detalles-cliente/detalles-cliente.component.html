@@ -1,0 +1,56 @@
+<main>
+  <div class="w-full flex flex-row items-center justify-center my-6">
+    <h2 class="font-bold text-gray-950 text-3xl">PERFIL DE USUARIO</h2>
+  </div>
+  <form class="mb-6">
+    <label for="documento">Documento:</label>
+    <input
+      type="text"
+      id="documento"
+      name="documento"
+      [(ngModel)]="usuario!.documento"
+      required
+    />
+
+    <label for="username">Username:</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      [(ngModel)]="usuario!.username"
+      required
+    />
+
+    <label for="nombre">Nombre:</label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      [(ngModel)]="usuario!.nombre"
+      required
+    />
+    <label for="direccion">Direccion:</label>
+    <input
+      type="text"
+      id="direccion"
+      name="direccion"
+      [(ngModel)]="usuario!.direccion"
+      required
+    />
+    <label for="telefono">Telefono:</label>
+    <input
+      type="text"
+      id="telefono"
+      name="telefono"
+      [(ngModel)]="usuario!.telefono"
+      required
+    />
+    <button
+      type="button"
+      (click)="Registrar()"
+      class="bg-customGreen text-white py-2 px-4 rounded-md font-bold hover:bg-customGreenDark transition-colors"
+    >
+      Registrar
+    </button>
+  </form>
+</main>

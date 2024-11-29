@@ -1,0 +1,25 @@
+<div class="login-background">
+  <div class="login-container">
+    <h2>LIMDES S.A.C.</h2>
+    <form>
+      <label for="usuario">Usuario:</label>
+      <input
+        type="text"
+        name="usuario"
+        id="usuario"
+        placeholder="Ingrese su usuario"
+        [(ngModel)]="usuario.username"
+      />
+      <label for="password">Contraseña:</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Ingrese su contraseña"
+        [(ngModel)]="usuario.password"
+      />
+
+      <button (click)="login()" class="btn">Ingresar</button>
+    </form>
+  </div>
+</div>
