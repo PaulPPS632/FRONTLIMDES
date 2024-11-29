@@ -10,6 +10,7 @@ export interface UsuarioRequest {
   nombre: string;
   direccion: string;
   telefono: string;
+  rol: string;
 }
 export interface UsuarioResponse {
   id: number;
@@ -18,6 +19,7 @@ export interface UsuarioResponse {
   nombre: string;
   direccion: string;
   telefono: string;
+  rol: string;
 }
 export interface LoginRequest {
   username: string;

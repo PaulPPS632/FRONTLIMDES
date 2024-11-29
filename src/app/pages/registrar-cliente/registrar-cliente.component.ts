@@ -23,6 +23,14 @@ import { TablesComponent } from '../../components/tables/tables.component';
 export class RegistrarClienteComponent implements OnInit {
   showForm: boolean = false;
   authService = inject(AuthService);
+  Roles = [
+    {
+      nombre: 'empresa',
+    },
+    {
+      nombre: 'cliente',
+    },
+  ];
   NewUsuario: UsuarioRequest = {
     username: '',
     password: '',
@@ -30,6 +38,7 @@ export class RegistrarClienteComponent implements OnInit {
     nombre: '',
     direccion: '',
     telefono: '',
+    rol: '',
   };
   Usuarios: UsuarioResponse[] = [];
   constructor(

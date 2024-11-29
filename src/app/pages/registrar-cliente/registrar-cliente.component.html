@@ -148,6 +148,17 @@
       [(ngModel)]="NewUsuario.telefono"
       required
     />
+    <label for="linea" class="block">Linea:</label>
+    <select
+      name="linea"
+      id="linea"
+      class="my-3 text-lg bg-gray-100 text-black rounded-md p-2"
+      [(ngModel)]="NewUsuario.rol"
+    >
+      @for (rol of Roles; track $index) {
+      <option [value]="rol.nombre">{{ rol.nombre }}</option>
+      }
+    </select>
     <button
       type="button"
       (click)="Registrar()"
@@ -160,6 +171,6 @@
 
   <app-tables
     [data]="Usuarios"
-    [columns]="['id', 'nombre', 'documento', 'direccion', 'username']"
+    [columns]="['id', 'nombre', 'documento', 'direccion', 'username', 'rol']"
   />
 </main>
